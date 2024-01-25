@@ -1,0 +1,25 @@
+<h1 id="tableLabel">City Names</h1>
+
+<p *ngIf="!cityNames?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="cityNames.length">
+  <thead>
+    <tr>
+      <th>City Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cityname of cityNames">
+      <td>{{ cityname }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  Name:
+  <input [(ngModel)]="cityNameInput" placeholder="Cityname" />
+
+</div>
+
+<button (click)="removeCity(cityNameInput)">Delete City</button>
+<button (click)="addCity(cityNameInput)">Add City</button>
